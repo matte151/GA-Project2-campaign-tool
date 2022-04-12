@@ -1,0 +1,11 @@
+<% if (user) { %>
+    <% if (user.email==="mattedwards1452@gmail.com") { %> 
+        <%- include('../partials/superheader') %> 
+    <% } else if (user.email==="mike.njus@gmail.com") { %> 
+        <%- include('../partials/dmheader') %>
+    <% } else if (user){ %> 
+        <%- include('../partials/playerheader') %>
+    <% } %>
+<% } else { %> 
+    <%- include('../partials/header') %> 
+<% } %>

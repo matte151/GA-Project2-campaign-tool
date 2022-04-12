@@ -1,3 +1,10 @@
+@font-face {
+  font-family: Anglodavek;
+  src: url(fonts/Anglodavek-a55E.ttf);
+}
+body{
+  margin: 0px;
+}
 .brand-logo {
   margin-left: 15px;
 }
@@ -17,4 +24,30 @@
 
 .collection-item form {
   margin-top: -5px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(170, 125, 82);
+  font-family: Anglodavek;
+  height: 60px;
+}
+nav > a {
+  text-decoration: none;
+  color: rgb(58, 1, 1);
+  padding: 0 20px 0 20px;
+  font-size: 45px;
+}
+nav > a:hover{
+  color: red;
+}
+.login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  font-size: 30px;
 }

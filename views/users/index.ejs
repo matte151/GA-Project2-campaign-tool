@@ -1,0 +1,14 @@
+<%- include('../partials/headerlogic') %>
+
+<h1><%= title %> </h1>
+<h1>Users Main Index</h1>
+<h2><% users.forEach(e => { %>
+ <div>Name:</div><div><%= e.name %></div><br>
+ <div>GoogleID:</div><div><%= e.googleId %></div><br>
+ <div>email:</div><div><%= e.email %></div><br>
+ <div>Users_id:</div><div><%= e.id %></div><br>
+<% }) %></h1>
+
+
+<div><% console.log(user) %></div>
+<%- include('../partials/footer') %>

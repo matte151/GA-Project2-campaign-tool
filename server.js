@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const abilitiesRouter = require('./routes/abilities');
 const actorsRouter = require('./routes/actors');
 const orbsRouter = require('./routes/orbs');
+const usersRouter = require('./routes/users');
 // load the env consts
 require('dotenv').config();
 
@@ -55,6 +56,7 @@ app.use(function (req, res, next) {
 app.use('/actors', actorsRouter);
 app.use('/abilities', abilitiesRouter);
 app.use('/orbs', orbsRouter);
+app.use('/users', usersRouter);
 app.use('/', indexRouter);
 
 
