@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const actorSchema = new Schema ({
     name: {type: String, required: true, unique: true},
     owner: {type: Schema.Types.ObjectId, ref: 'User',},
+    class: {type: String, required: true, enum:['Player','NPC','Monster']},
     abilities: [{type: Schema.Types.ObjectId, ref: 'Ability',}],
     items: String, //later make this a new model
     orbs:[{type: Schema.Types.ObjectId, ref: 'Orb',}],
@@ -13,6 +14,7 @@ const actorSchema = new Schema ({
     constitution: Number,
     intelligence: Number,
     wisdom: Number,
+    charisma: Number,
     balisticSkill: Number,
     weaponSkill: Number,
     fortitude: Number,
@@ -30,11 +32,13 @@ const actorSchema = new Schema ({
     regen: Number,
     injuries: String,
     maxPP: Number,
+    currentPP: Number,
     maxBP: Number,
     currentBP: Number,
     haste: Number,
     level: Number,
-    notes: String,
+    notesDM: String,
+    notesPlayer: String,
 })
 
 module.exports = mongoose.model('Actor', actorSchema)
