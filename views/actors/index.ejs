@@ -4,14 +4,16 @@
    <!-- set up an ejsif here that checks the actor user id against the logged in user once there is active user data. -->
     <% actors.forEach(e => { %>
      <a href="/actors/<%= e._id %>" class="actorsListItem"><%= e.name %> </a>
+     <% if (user) { %><% if (user.email==="mattedwards1452@gmail.com") { %>
+      <form class="delete" method="POST" action="/actors/<%= e._id %>?_method=DELETE"><button type ="submit">Delete <%= e.name %> </button></form>
+     <% } %><% } %>
     <% }) %>
 </div>
 
-<% if (user) { %>
-<% if (user.email==="mattedwards1452@gmail.com") { %>
+<% if (user) { %><% if (user.email==="mattedwards1452@gmail.com") { %>
 <a href="/actors/new">Add New Actor</a>
-<% } %>
-<% } %>
+<% } %><% } %>
+
 
 <!-- <iframe src="" frameborder="0"></iframe> -->
 

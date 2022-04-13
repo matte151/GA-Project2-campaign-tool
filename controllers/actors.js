@@ -5,7 +5,8 @@ module.exports = {
     show,
     new: newActor,
     create,
-    // delete: deleteActor,
+    update,
+    delete: deleteActor,
 }
 
 function index(req, res){
@@ -38,8 +39,25 @@ async function create(req,res){
         next (err);
     }
 }
-
-
+async function update(req, res){
+    try {
+        console.log(req.params.id,"<<<params^^^",req.body,"<<<body^^^")
+        const updateActor = await Actor.findByIdAndUpdate(req.params.id, req.body, {new:true})
+        console.log(updateActor)
+        res.redirect(`/actors/${req.params.id}`)
+    } catch (err) {
+        res.send(err)
+    }
+}
+async function deleteActor(req, res) {
+    try {
+        const removedActor= await Actor.findByIdAndRemove(req.params.id);
+        res.redirect('/actors');
+        console.log(removedActor);
+    } catch (err) {
+        res.send(err);
+    }
+}
 
 function handleErr(err) {
     console.log(err, '<---- Thar be yer error matey! Love, Actors Controller')

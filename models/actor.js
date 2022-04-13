@@ -24,6 +24,7 @@ const actorSchema = new Schema ({
     missChance: Number,
     maxWounds: Number,
     currentWounds: Number,
+    toughness: Number,
     armor: Number,
     overshieldT: Number,
     overshieldMaxHp: Number,
