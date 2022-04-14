@@ -1,0 +1,7 @@
+<div class="orbGrid">
+    <form class="actorDetails" method="POST" action="/orbs/<%= orb.id %>?_method=PUT">
+        <label>Name: </label> <input name="name" class="name" type="text" disabled="true" value="<%= orb.name %>">
+        <label>Class: </label> <input name="class" class="class" type="text" disabled="true" value="<%= orb.class %>">
+        <label>Dimension: </label> <input name="dimension" class="dimension" type="text" disabled="true" value="<%= orb.dimension %>">
+        <button type ="submit">Submit</button>
+    </form>

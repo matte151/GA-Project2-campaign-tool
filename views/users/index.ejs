@@ -1,5 +1,6 @@
-<%- include('../partials/headerlogic') %>
-
+<%- include('../partials/headers/headerlogic') %>
+views/partials/headers/headerlogic.ejs
+views/users/index.ejs
 <h1><%= title %> </h1>
 <h1>Users Main Index</h1>
 <h2><% users.forEach(e => { %>
@@ -11,4 +12,4 @@
 
 
 <div><% console.log(user) %></div>
-<%- include('../partials/footer') %>
+<%- include('../partials/headers/footer') %>

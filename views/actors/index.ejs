@@ -1,4 +1,4 @@
-<%- include('../partials/headerlogic') %> 
+<%- include('../partials/headers/headerlogic') %> 
 
 <div class="actorsListLvl1">Available Actors
    <!-- set up an ejsif here that checks the actor user id against the logged in user once there is active user data. -->
@@ -14,7 +14,7 @@
 <a href="/actors/new">Add New Actor</a>
 <% } %><% } %>
 
-
+<% if(user && user.id.equals(e.user)){ %>
 <!-- <iframe src="" frameborder="0"></iframe> -->
 
-<%- include('../partials/footer') %>
+<%- include('../partials/headers/footer') %>

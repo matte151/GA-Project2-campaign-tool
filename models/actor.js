@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 const actorSchema = new Schema ({
     name: {type: String, required: true, unique: true},
-    owner: {type: Schema.Types.ObjectId, ref: 'User',},
+    owner: {type: Schema.Types.ObjectId, ref: 'User'},
     class: {type: String, required: true, enum:['Player','NPC','Monster']},
-    abilities: [{type: Schema.Types.ObjectId, ref: 'Ability',}],
+    abilities: [{type: Schema.Types.ObjectId, ref: 'Ability'}],
     items: String, //later make this a new model
-    orbs:[{type: Schema.Types.ObjectId, ref: 'Orb',}],
+    orbs:[{type: Schema.Types.ObjectId, ref: 'Orb'}],
         // Make a stats table that belongs to actors? Not sure, it may be a populate nightmare...
     strength: Number,
     dexterity: Number,
