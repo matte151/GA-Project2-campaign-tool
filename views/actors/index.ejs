@@ -2,19 +2,23 @@
 
 <div class="actorsListLvl1">Available Actors
    <!-- set up an ejsif here that checks the actor user id against the logged in user once there is active user data. -->
-    <% actors.forEach(e => { %>
-     <a href="/actors/<%= e._id %>" class="actorsListItem"><%= e.name %> </a>
+   <% actors.forEach(e => { %>
+    <br>
+    <% if(user && user._id.equals(e.owner)){ %>
+        <a href="/actors/<%= e._id %>" class="actorsListItem"><%= e.name %></a>
+        <% } %>
      <% if (user) { %><% if (user.email==="mattedwards1452@gmail.com") { %>
       <form class="delete" method="POST" action="/actors/<%= e._id %>?_method=DELETE"><button type ="submit">Delete <%= e.name %> </button></form>
+      <br>
      <% } %><% } %>
     <% }) %>
 </div>
-
+<br>
 <% if (user) { %><% if (user.email==="mattedwards1452@gmail.com") { %>
 <a href="/actors/new">Add New Actor</a>
 <% } %><% } %>
 
-<% if(user && user.id.equals(e.user)){ %>
+
 <!-- <iframe src="" frameborder="0"></iframe> -->
 
 <%- include('../partials/headers/footer') %>

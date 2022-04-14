@@ -12,7 +12,7 @@ module.exports = {
 function index(req, res){
     Actor.find({}, function(err, actors){
         if(err) return handleErr(err);
-        res.render('actors/index',{actors, title: 'Actors List!'})
+        res.render('actors/index',{actors, title: 'Actors'})
     })
 }
 
@@ -39,6 +39,7 @@ async function create(req,res){
         next (err);
     }
 }
+
 async function update(req, res){
     try {
         console.log(req.params.id,"<<<params^^^",req.body,"<<<body^^^")
@@ -49,6 +50,7 @@ async function update(req, res){
         res.send(err)
     }
 }
+
 async function deleteActor(req, res) {
     try {
         const removedActor= await Actor.findByIdAndRemove(req.params.id);
