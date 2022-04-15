@@ -5,14 +5,18 @@ This project uses MongoDB in a cloud environment to map the complicated aspects 
 
 
 
-## Documentation
+## Getting Started
 
-[Documentation](https://linktodocumentation)
+To get started, observe the image below.  Click Login, and after authenticating with Google, email the webmaster with your desired user level.  Please note this could take 24-48 hours or longer, so stay patient.
+![App Screenshot](https://i.imgur.com/ckI4q9U.jpg)
 
+Once you have been approved you will be able to log in and see a screen such as this.  To get started as a DM you'll need to add actors, and from there the world is your oyster!
+
+![App Screenshot](https://i.imgur.com/3V6FLFZ.jpg)
 
 ## Features
 
-TBA
+Track Actors (players, npcs and monsters) as well as magic and abilities.  Future features will include the ability to target other actors and more interactability.
 
 
 ## Environment Variables
@@ -21,12 +25,12 @@ To run this project, you will need to add the following environment variables to
 
 GOOGLE_CLIENT_ID=561652212686-hb7nv5tt0bnivc1jo30k93673bcjnrn6.apps.googleusercontent.com
 GOOGLE_SECRET=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
-GOOGLE_CALLBACK=http://localhost:3000/oauth2callback
+GOOGLE_CALLBACK=<callback for your hosting location here>
 SECRET=seiRocks!
-DATABASE_URL=
+DATABASE_URL=<Link to your database hosting site here>
 
 ## 🚀 About Me
-I'm a full stack developer...
+I'm a passionate DM and full stack developer who is taking this in as a continuing pet project.
 
 
 ## 🔗 Links
@@ -38,14 +42,12 @@ https://trello.com/b/mEalAu1O/ga-project2board
 
 ## Lessons Learned
 
-What did you learn while building this project? What challenges did you face and how did you overcome them?
-
+I learned a WHOLE lot about CRUD operations during this project.
 
 ## Roadmap
 
-- Additional browser support
-
-- Add more integrations
+A trello is available here for future roadmap goals.
+https://trello.com/b/mEalAu1O/ga-project2board
 
 
 ## Screenshots
@@ -56,9 +58,11 @@ What did you learn while building this project? What challenges did you face and
 
 
 
+
 ## Tech Stack
 
-**Client:** React, Redux, TailwindCSS
+**Client:** HTML, CSS, Javascript, EJS, Express
 
-**Server:** Node, Express
+**Server:** MongoDB, Mongoose, Heroku
+
 
