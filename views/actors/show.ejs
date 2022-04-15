@@ -2,58 +2,73 @@
 
 <div class="actorGrid">
     <form class="actorDetails" method="POST" action="/actors/<%= actor.id %>?_method=PUT">
-        <label>Name: </label> <input name="name" class="name" type="text" disabled="true" value="<%= actor.name %>">
-        <label>Owner: </label> <input name="owner" class="owner" type="text" disabled="true" value="<%= actor.owner %>">
+        <label class="nameActor" >Name:  <input name="name" class="nameActor" type="text" disabled="true" value="<%= actor.name %>"></label>
+        <label>Owner:  <input name="owner" class="owner" type="text" disabled="true" value="<%= actor.owner %>"></label>
         <div class="abilitiesGrid"><% actor.abilities.forEach(a => { %>
             <div class="ability" id="abilityName">Ability Name: <%= a.name %> </div>
             <div class="ability" id="powerLevel">Power Rank: <%= a.effectivePowerLevel %> </div>
             <div class="ability" id="cost">Cost: <%= a.cost %> </div>
         <% }) %></div>
-        <label>Items: </label> <input name="items" class="items" type="text" disabled="true" value="<%= actor.items %>">
+        <label>Items:  <input name="items" class="items" type="text" disabled="true" value="<%= actor.items %>"></label>
         <div class="orbsGrid"><% actor.orbs.forEach(o => { %>
            <div class="orbs" id="orbName">Orb: <%= o.name %> </div>
         <% }) %></div>
 
-        <label>Injuries: </label> <input name="injuries" class="injuries" type="text" disabled="true" value="<%= actor.injuries %>">
-        <label>Max PP: </label> <input name="maxPP" class="maxPP" type="number" disabled="true" value="<%= actor.maxPP %>">
-        <label>Current PP: </label> <input name="currentPP" class="currentPP" type="number" disabled="true" value="<%= actor.currentPP %>">
-        <label>Resting BP: </label> <input name="maxBP" class="maxBP" type="number" disabled="true" value="<%= actor.maxBP %>">
-        <label>Current BP: </label> <input name="currentBP" class="currentBP" type="number" disabled="true" value="<%= actor.currentBP %>">
-        <label>Haste: </label> <input name="haste" class="haste" type="number" disabled="true" value="<%= actor.haste %>">
-        <label>Notes: </label> <input name="notesPlayer" class="notesPlayer" type="text" disabled="true" value="<%= actor.notesPlayer %>">
+        <label>Injuries:  <input name="injuries" class="injuries" type="text" disabled="true" value="<%= actor.injuries %>"></label>
+        <label>Max PP:  <input name="maxPP" class="maxPP" type="number" disabled="true" value="<%= actor.maxPP %>"></label>
+        <label>Current PP:  <input name="currentPP" class="currentPP" type="number" disabled="true" value="<%= actor.currentPP %>"></label>
+        <label>Resting BP:  <input name="maxBP" class="maxBP" type="number" disabled="true" value="<%= actor.maxBP %>"></label>
+        <label>Current BP:  <input name="currentBP" class="currentBP" type="number" disabled="true" value="<%= actor.currentBP %>"></label>
+        <label>Haste:  <input name="haste" class="haste" type="number" disabled="true" value="<%= actor.haste %>"></label>
+        <label class="notesPlayer">Notes:  <input name="notesPlayer" class="notesPlayer" type="text" disabled="true" value="<%= actor.notesPlayer %>"></label>
         <% if (user) { %>
         <% if (user.email==="mattedwards1452@gmail.com") { %>
             <div class="statsGrid">
-                <label>Str: </label> <input name="strength" class="strength" type="number" disabled="true" value="<%= actor.strength %>">
-                <label>Dex: </label> <input name="dexterity" class="dexterity" type="number" disabled="true" value="<%= actor.dexterity %>">
-                <label>Con: </label> <input name="constitution" class="constitution" type="number" disabled="true" value="<%= actor.constitution %>">
-                <label>Int: </label> <input name="intelligence" class="intelligence" type="number" disabled="true" value="<%= actor.intelligence %>">
-                <label>Wis: </label> <input name="wisdom" class="wisdom" type="number" disabled="true" value="<%= actor.wisdom %>">
-                <label>Cha: </label> <input name="charisma" class="charisma" type="number" disabled="true" value="<%= actor.charisma %>">
-                <label>BS: </label> <input name="balisticSkill" class="balisticSkill" type="number" disabled="true" value="<%= actor.balisticSkill %>">
-                <label>WS: </label> <input name="weaponSkill" class="weaponSkill" type="number" disabled="true" value="<%= actor.weaponSkill %>">
-                <label>Fort: </label> <input name="fortitude" class="fortitude" type="number" disabled="true" value="<%= actor.fortitude %>">
-                <label>Ref: </label> <input name="reflex" class="reflex" type="number" disabled="true" value="<%= actor.reflex %>">
-                <label>Will: </label> <input name="will" class="will" type="number" disabled="true" value="<%= actor.will %>">
-                <label>Evasion: </label> <input name="evasion" class="evasion" type="number" disabled="true" value="<%= actor.evasion %>">
-                <label>Miss Chance: </label> <input name="missChance" class="missChance" type="number" disabled="true" value="<%= actor.missChance %>">
-                <label>Max W: </label> <input name="maxWounds" class="maxWounds" type="number" disabled="true" value="<%= actor.maxWounds %>">
-                <label>Current W: </label> <input name="currentWounds" class="currentWounds" type="number" disabled="true" value="<%= actor.currentWounds %>">
-                <label>Toughness: </label> <input name="toughness" class="toughness" type="number" disabled="true" value="<%= actor.toughness %>">
-                <label>Armor: </label> <input name="armor" class="armor" type="number" disabled="true" value="<%= actor.armor %>">
-                <label>OS T: </label> <input name="overshieldT" class="overshieldT" type="number" disabled="true" value="<%= actor.overshieldT %>">
-                <label>OS Max HP: </label> <input name="overshieldMaxHp" class="overshieldMaxHp" type="number" disabled="true" value="<%= actor.overshieldMaxHp %>">
-                <label>OS Current HP: </label> <input name="overshieldCurrentHp" class="overshieldCurrentHp" type="number" disabled="true" value="<%= actor.overshieldCurrentHp %>">
-                <label>OS Notes: </label> <input name="overshieldNote" class="overshieldNote" type="text" disabled="true" value="<%= actor.overshieldNote %>">
-                <label>Regen: </label> <input name="regen" class="regen" type="number" disabled="true" value="<%= actor.regen %>">
-                <label>DM Notes: </label> <input name="notesDM" class="notesDM" type="text" disabled="true" value="<%= actor.notesDM %>">
-                <label>Lvl: </label> <input name="level" class="level" type="number" disabled="true" value="<%= actor.level %>">
+                <label class="stats1">Str:  <input name="strength" class="stats1" type="number" disabled="true" value="<%= actor.strength %>"></label>
+                <label class="stats1">Dex:  <input name="dexterity" class="stats1" type="number" disabled="true" value="<%= actor.dexterity %>"></label>
+                <label class="stats1">Con:  <input name="constitution" class="stats1" type="number" disabled="true" value="<%= actor.constitution %>"></label>
+                <label class="stats1">Int:  <input name="intelligence" class="stats1" type="number" disabled="true" value="<%= actor.intelligence %>"></label>
+                <label class="stats1">Wis:  <input name="wisdom" class="stats1" type="number" disabled="true" value="<%= actor.wisdom %>"></label>
+                <label class="stats1">Cha:  <input name="charisma" class="stats1" type="number" disabled="true" value="<%= actor.charisma %>"></label>
+                <label class="stats2">BS:  <input name="balisticSkill" class="stats2" type="number" disabled="true" value="<%= actor.balisticSkill %>"></label>
+                <label class="stats2">WS:  <input name="weaponSkill" class="stats2" type="number" disabled="true" value="<%= actor.weaponSkill %>"></label>
+                <label class="stats2">Fort:  <input name="fortitude" class="stats2" type="number" disabled="true" value="<%= actor.fortitude %>"></label>
+                <label class="stats2">Ref:  <input name="reflex" class="stats2" type="number" disabled="true" value="<%= actor.reflex %>"></label>
+                <label class="stats2">Will:  <input name="will" class="stats2" type="number" disabled="true" value="<%= actor.will %>"></label>
+                <label class="stats2">Evasion:  <input name="evasion" class="stats2" type="number" disabled="true" value="<%= actor.evasion %>"></label>
+                <label class="stats3">Miss Chance:  <input name="missChance" class="stats3" type="number" disabled="true" value="<%= actor.missChance %>"></label>
+                <label class="stats3">Max W:  <input name="maxWounds" class="stats3" type="number" disabled="true" value="<%= actor.maxWounds %>"></label>
+                <label class="stats3">Current W:  <input name="currentWounds" class="stats3" type="number" disabled="true" value="<%= actor.currentWounds %>"></label>
+                <label class="stats3">Toughness:  <input name="toughness" class="stats3" type="number" disabled="true" value="<%= actor.toughness %>"></label>
+                <label class="stats3">Armor:  <input name="armor" class="armor" type="stats3" disabled="true" value="<%= actor.armor %>"></label>
+                <label class="stats4">OS T:  <input name="overshieldT" class="stats4" type="number" disabled="true" value="<%= actor.overshieldT %>"></label>
+                <label class="stats4">OS Max HP:  <input name="overshieldMaxHp" class="stats4" type="number" disabled="true" value="<%= actor.overshieldMaxHp %>"></label>
+                <label class="stats4">OS Current HP:  <input name="overshieldCurrentHp" class="stats4" type="number" disabled="true" value="<%= actor.overshieldCurrentHp %>"></label>
+                <label class="stats4">OS Notes:  <input name="overshieldNote" class="stats4" type="text" disabled="true" value="<%= actor.overshieldNote %>"></label>
+                <label class="stats4">Regen:  <input name="regen" class="stats4" type="number" disabled="true" value="<%= actor.regen %>"></label>
+                <label class="notesDM">DM Notes: </label> <input name="notesDM" class="notesDM" type="text" disabled="true" value="<%= actor.notesDM %>">
+                <label class="stats4">Lvl:  <input name="level" class="stats4" type="number" disabled="true" value="<%= actor.level %>"></label>
             </div>
         <% } %>
         <% } %>
     <br><input class="submit" type="submit" value="Update">
     </form>
+<h3>Orbs</h3>
+<ul>Owned
+<%- actor.orbs.map(p =>
+`<li>${p.name} - ${p.class} - ${p.dimension}</li>`
+).join("")
+ %> 
+ </ul>
 
+<form class="addOrbToActor" action="/actors/<%= actor._id %>/orbs" method="POST">
+    <select name="orbId">
+        <%- freeOrbs.map(p =>
+        `<option value="${p._id}">${p.name}</option>`
+        ).join("") %> 
+        </select>
+        <button type="submit">Add Orb</button>
+</form>
 </div>
 
 

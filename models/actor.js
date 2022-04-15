@@ -8,7 +8,7 @@ const actorSchema = new Schema ({
     abilities: [{type: Schema.Types.ObjectId, ref: 'Ability'}],
     items: String, //later make this a new model
     orbs:[{type: Schema.Types.ObjectId, ref: 'Orb'}],
-        // Make a stats table that belongs to actors? Not sure, it may be a populate nightmare...
+    orbStats:[{type: Schema.Types.ObjectId, ref: 'OrbStat'}],
     strength: Number,
     dexterity: Number,
     constitution: Number,

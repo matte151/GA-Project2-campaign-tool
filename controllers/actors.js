@@ -1,4 +1,7 @@
 const Actor = require('../models/actor')
+const OrbStat = require('../models/orbStat')
+const Ability = require('../models/ability')
+const Orb = require('../models/orb')
 
 module.exports = {
     index,
@@ -7,6 +10,7 @@ module.exports = {
     create,
     update,
     delete: deleteActor,
+    addOrb,
 }
 
 function index(req, res){
@@ -18,8 +22,13 @@ function index(req, res){
 
 async function show(req,res){
     try {
-        const actor = await Actor.findById(req.params.id);
-        res.render('actors/show', {actor, title:'Actor Details'})
+        Actor.findById(req.params.id).populate('orbStats').populate('abilities').populate('orbs').exec(function(err, actor){
+            Orb.find( {_id: {$nin: actor.orbs}}, function(err, freeOrbs){
+                res.render('actors/show', {actor, freeOrbs, title:'Actor Details'})
+            })
+            
+        });
+
     } catch (err){
         res.send(err);
     }
@@ -36,7 +45,7 @@ async function create(req,res){
         console.log(createdActor)
         res.redirect('/actors')
     } catch (err) {
-        next (err);
+        res.send(err);
     }
 }
 
@@ -59,6 +68,14 @@ async function deleteActor(req, res) {
     } catch (err) {
         res.send(err);
     }
+}
+function addOrb(req, res) {
+    Actor.findById(req.params.id, function(err, actor){
+        actor.orbs.push(req.body.orbId);
+        actor.save(function(err) {
+            res.redirect(`/actors/${actor._id}`)
+        })
+    })
 }
 
 function handleErr(err) {

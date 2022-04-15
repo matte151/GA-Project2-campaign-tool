@@ -12,4 +12,6 @@ router.put('/:id', actorsController.update)
 
 router.delete('/:id', actorsController.delete)
 
+router.post('/:id/orbs', actorsController.addOrb)
+
 module.exports = router;

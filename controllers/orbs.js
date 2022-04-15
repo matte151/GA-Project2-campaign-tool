@@ -1,4 +1,5 @@
 const Orb = require('../models/orb')
+const Actor = require('../models/actor')
 
 
 module.exports = {
@@ -8,6 +9,7 @@ module.exports = {
     create,
     update,
     delete: deleteActor,
+    // addToActor,
 }
 
 async function index(req, res){
@@ -61,6 +63,14 @@ async function deleteActor(req, res) {
         res.send(err);
     }
 }
+// function addToActor(req, res) {
+//     Actor.findById(req.params.id, function(err, actor){
+//         actor.orbs.push(req.body.orbId);
+//         actor.save(function(err) {
+//             res.redirect(`/actors/${actor._id}`)
+//         })
+//     })
+// }
 
 
 function handleErr(err) {

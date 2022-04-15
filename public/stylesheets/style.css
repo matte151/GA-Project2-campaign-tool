@@ -4,26 +4,20 @@
 }
 body{
   margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(252, 243, 231);
 }
-.brand-logo {
-  margin-left: 15px;
+main{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+.intro{
+  width: 60%;
 
-.card .card-content .card-title {
-  margin-bottom: 10px;
-}
-
-#search-row form {
-  padding-top: 20px;
-}
-
-.student-name {
-  position: relative;
-  top: -5px;
-}
-
-.collection-item form {
-  margin-top: -5px;
 }
 nav {
   display: flex;
@@ -31,12 +25,13 @@ nav {
   background-color: rgb(170, 125, 82);
   font-family: Anglodavek;
   height: 60px;
+  width: 100%;
 }
 nav > a {
   text-decoration: none;
   color: rgb(58, 1, 1);
   padding: 0 20px 0 20px;
-  font-size: 45px;
+  font-size: 42px;
 }
 nav > a:hover{
   color: red;
@@ -50,4 +45,48 @@ nav > a:hover{
   align-items: center;
   height: 30px;
   font-size: 30px;
+}
+.navUserLvl {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.actorDetails{
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.nameActor{
+  grid-area: 1/4/2/5;
+}
+.statsGrid{
+  grid-area: 4/2/6/7;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 2fr;
+  border: black solid;
+}
+label > input {
+  width: 100%;
+  border: none;
+  text-align: center;
+}
+.stats1{
+  grid-row: 1/2;
+}
+.stats2{
+  grid-row: 3/4;
+}
+.stats3{
+  grid-row: 5/6;
+}
+.stats4{
+  grid-row-start: 7;
+  grid-row-end:8
+}
+.notesDM{
+  grid-area: 9/1/11/7 ;
+}
+.notesPlayer {
+  grid-area: 3/1/4/8;
 }

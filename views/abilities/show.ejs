@@ -1,0 +1,44 @@
+<%- include('../partials/headers/headerlogic') %> 
+<% if(user && user._id.equals(ability.owner) || user && user.userLevel==="Super"){ %>
+    <div class="abilityFormGrid">
+        <form class="abilitiesDetails" method="POST" action="/abilities/<%= ability.id %>?_method=PUT">>
+            <label>Name:</label><input type="text" disabled="true" name="name">
+            <label>Owner:</label><input type="text" disabled="true" name="owner">
+            <label>Primary Orb:</label><select type="Schema.type.ObjectId" disabled="true" name="primaryOrb">
+                <option value="">Select Primary Orb</option>
+                <% if (orbs) {
+                    orbs.forEach(e => {%>
+                        <option value="<%= e.id %>"><%= e.name %></option>
+                        <% }); %>
+                <% } %>
+
+            <label>primaryStat:</label><input type="number" disabled="true" name="primaryStat">
+            <label>secondaryOrbs: Skip me for now, this will have to push into the array.</label><input type="number" disabled="true" name="secondaryOrbs">
+            <label>secondaryStat: Skip me for now, this will have to push into the array.</label><input type="number" disabled="true" name="secondaryStat">
+            <label>EffectivePowerLevel:</label><input type="number" disabled="true" name="effectivePowerLevel">
+            <label>AbilityLevel:</label><input type="number" disabled="true" name="AbilityLevel">
+            <label>Cost:</label><input type="number" disabled="true" name="cost">
+            <label>Type:</label><input type="text" disabled="true" name="name">
+           <p> Make this only show up if they have BP, otherwise, just default it to PP and call it a day.</p>
+            <label>Range:</label><input type="text" disabled="true" name="range">
+            <label>Area Of Effect:</label><input type="text" disabled="true" name="areaOfEffect">
+            <label>Notes:</label><input type="number" disabled="true" name="notes">
+            <% if (user && user.userLevel==="Super" || user && user.userLevel==="DM" ) { %>
+            <label>damageScalingOrb:</label><input type="number" disabled="true" name="damageScalingOrb">
+            <label>damageScalingLevel:</label><input type="number" disabled="true" name="damageScalingLevel">
+            <label>damageScalingMin:</label><input type="number" disabled="true" name="damageScalingMin">
+            <label>damageScalingMax:</label><input type="number" disabled="true" name="damageScalingMax">
+            <label>damageFlatBonus:</label><input type="number" disabled="true" name="damageFlatBonus">
+            <label>penetrationArmor:</label><input type="number" disabled="true" name="penetrationArmor">
+            <label>penetrationOS:</label><input type="number" disabled="true" name="penetrationOS">
+            <label>saveDCBase:</label><input type="number" disabled="true" name="saveDCBase">
+            <label>saveDCScalingOrb:</label><input type="number" disabled="true" name="saveDCScalingOrb">
+            <label>saveDCSclaingLevel:</label><input type="number" disabled="true" name="saveDCSclaingLevel">
+            <label>critMultiplier:</label><input type="number" disabled="true" name="critMultiplier">
+            <% } %>
+            <br><input class="submit" type="submit" value="Update">
+        </form>
+
+    </div>
+    <% } %>
+<%- include('../partials/headers/footer') %>

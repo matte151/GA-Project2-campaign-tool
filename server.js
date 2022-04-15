@@ -55,8 +55,8 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/actors', actorsRouter);
 app.use('/abilities', abilitiesRouter);
-app.use('/orbs', orbsRouter);
 app.use('/users', usersRouter);
+app.use('/orbs', orbsRouter);
 app.use('/', indexRouter);
 
 

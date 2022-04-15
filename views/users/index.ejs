@@ -2,14 +2,14 @@
 
 
 <% users.forEach(e => { %>
-<% if(user && user._id.equals(e.id) || user && user.userLevel.equals("Super")){ %>
+<% if(user && user._id.equals(e.id) || user && user.userLevel=="Super"){ %>
  <form class="userDetails" method="POST" action="/users/<%= e.id %>?_method=PUT">
     <h2><label>Name: </label> <input name="name" class="name" type="text" disabled="true" value="<%= e.name %>"></h2>
     <label>GoogleID: </label> <input name="googleId" class="owner" type="text" disabled="true" value="<%= e.googleId %>">
     <label>email: </label> <input name="email" class="name" type="text" disabled="true" value="<%= e.email %>">
     <label>Users_id: </label> <input name="id" class="name" type="text" disabled="true" value="<%= e.id %>">
     <label>UserLevel: </label> <input name="userLevel" class="name" type="text" disabled="true" value="<%= e.userLevel %>">
-    <br><input class="submit" type="submit" value="Update">
+    <br><input class="submit" type="submit" value="Update"></form>
     <form class="delete" method="POST" action="/users/<%= e._id %>?_method=DELETE"><button type ="submit">Delete <%= e.name %> </button></form>
     <br>
     <hr>
@@ -17,6 +17,4 @@
 <% }) %>
 
 
-
-<div><% console.log(user) %></div>
 <%- include('../partials/headers/footer') %>

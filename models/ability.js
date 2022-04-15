@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const abilitySchema = new Schema({
     name: String,
+    owner: {type: Schema.Types.ObjectId, ref: 'User'},
     primaryOrb:{type: Schema.Types.ObjectId, ref: 'Orb', required: true},
     primaryStat: {type: String, enum:['empower','knowledge','utility','quickness','body']},
     secondaryOrbs:[{type: Schema.Types.ObjectId, ref: 'Orb',}],

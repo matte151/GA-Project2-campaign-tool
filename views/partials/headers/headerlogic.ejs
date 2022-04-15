@@ -1,7 +1,7 @@
 <% if (user) { %>
-    <% if (user.email==="mattedwards1452@gmail.com") { %> 
+    <% if (user.userLevel==="Super") { %> 
         <%- include('./superheader') %> 
-    <% } else if (user.email==="mike.njus@gmail.com") { %> 
+    <% } else if (user.userLevel==="DM") { %> 
         <%- include('./dmheader') %>
     <% } else if (user){ %> 
         <%- include('./playerheader') %>
