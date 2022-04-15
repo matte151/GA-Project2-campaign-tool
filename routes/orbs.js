@@ -1,16 +1,17 @@
 const express = require('express');
 const router = require('express').Router();
 const orbsController = require('../controllers/orbs.js')
+const isLoggedIn = require('../config/auth');
 
-router.get('/', orbsController.index)
-router.get('/new', orbsController.new)
-router.get('/:id', orbsController.show)
+router.get('/', isLoggedIn, orbsController.index)
+router.get('/new', isLoggedIn, orbsController.new)
+router.get('/:id', isLoggedIn, orbsController.show)
 
-router.post('/', orbsController.create)
+router.post('/', isLoggedIn, orbsController.create)
 
-router.put('/:id', orbsController.update)
+router.put('/:id', isLoggedIn, orbsController.update)
 
-router.delete('/:id', orbsController.delete)
+router.delete('/:id', isLoggedIn, orbsController.delete)
 
 // router.post('/actors/:id/orbs', orbsController.addToActor)
 

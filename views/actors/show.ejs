@@ -53,24 +53,58 @@
         <% } %>
     <br><input class="submit" type="submit" value="Update">
     </form>
+
+    
+<% if(user && user._id.equals(actor.owner) || user && user.userLevel==="Super"){ %>
 <h3>Orbs</h3>
+<% actor.orbs.forEach(o => { %>
+ <h3><%=o.name%> - <%=o.class%> - <%=o.dimension%></h3>
+<% }) %>
 <ul>Owned
 <%- actor.orbs.map(p =>
-`<li>${p.name} - ${p.class} - ${p.dimension}</li>`
+`<li>${p.name} - ${p.class} - ${p.dimension}</li><br>`
 ).join("")
  %> 
  </ul>
 
+<h3>Orb Stats</h3>
+<ul>
+    <%- actor.orbStats.map(p =>
+        `<li>${p.name}<br>Empower Rank: ${p.empower} - Utility Rank: ${p.utility} - Quickness Rank: ${p.quickness} - Body Rank: ${p.body} - Knowledge Rank: ${p.knowledge}</li><br>`
+        ).join("")
+    %> 
+</ul>
+<br>
+
+
+<br>
+<h3>Add Orb</h3>
 <form class="addOrbToActor" action="/actors/<%= actor._id %>/orbs" method="POST">
     <select name="orbId">
         <%- freeOrbs.map(p =>
-        `<option value="${p._id}">${p.name}</option>`
+       `<option value="${p._id}">${p.name}</option>`
         ).join("") %> 
         </select>
         <button type="submit">Add Orb</button>
 </form>
-</div>
 
+<br>
+<h3>Add Orb Stats</h3>
 
+<form class="addOrbStats" action="/actors/<%= actor._id %>/orbStats" method="POST">
+    <select name="orbStatId">
+        <% actor.orbs.forEach(o => { %>
+            <%-`<option value="${o._id}">${o.name}</option>`%>
+        <% }) %>
+    </select>
+    <label >Empower Rank:</label><input type="number" name="empower">
+    <label >Knowledge Rank:</label><input type="number" name="knowledge">
+    <label >Utility Rank:</label><input type="number" name="utility">
+    <label >Quickness Rank:</label><input type="number" name="quickness">
+    <label >Body Rank:</label><input type="number" name="body">
+    <button type="submit">Add Stats</button>
+    </form>
     
+ <% } %>    
+    </div> 
 <%- include('../partials/headers/footer') %>

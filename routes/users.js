@@ -1,11 +1,12 @@
 const express = require('express');
 const router = require('express').Router();
 const usersController = require('../controllers/users.js')
+const isLoggedIn = require('../config/auth');
 
-router.get('/', usersController.index)
+router.get('/', isLoggedIn, usersController.index)
 
-router.put('/:id', usersController.update)
+router.put('/:id', isLoggedIn, usersController.update)
 
-router.delete('/:id', usersController.delete)
+router.delete('/:id', isLoggedIn, usersController.delete)
 
 module.exports = router;

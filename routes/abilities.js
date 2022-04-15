@@ -1,17 +1,18 @@
 const express = require('express');
 const router = require('express').Router();
 const abilitiesController = require('../controllers/abilities.js')
+const isLoggedIn = require('../config/auth');
 
 
-router.get('/', abilitiesController.index)
-router.get('/new', abilitiesController.new)
-router.get('/:id', abilitiesController.show)
+router.get('/', isLoggedIn, abilitiesController.index)
+router.get('/new', isLoggedIn, abilitiesController.new)
+router.get('/:id', isLoggedIn, abilitiesController.show)
 
-router.post('/', abilitiesController.create)
+router.post('/', isLoggedIn, abilitiesController.create)
 
-router.put('/:id', abilitiesController.update)
+router.put('/:id', isLoggedIn, abilitiesController.update)
 
-router.delete('/:id', abilitiesController.delete)
+router.delete('/:id', isLoggedIn, abilitiesController.delete)
 
 
 module.exports = router;

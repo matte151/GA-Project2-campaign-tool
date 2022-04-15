@@ -1,5 +1,6 @@
 var router = require('express').Router();
 const passport = require('passport');
+const isLoggedIn = require('../config/auth');
 
 // The root route renders our only view
 router.get('/', function(req, res, next) {

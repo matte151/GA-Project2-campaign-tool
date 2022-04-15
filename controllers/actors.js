@@ -11,6 +11,7 @@ module.exports = {
     update,
     delete: deleteActor,
     addOrb,
+    addOrbStats,
 }
 
 function index(req, res){
@@ -71,12 +72,48 @@ async function deleteActor(req, res) {
 }
 function addOrb(req, res) {
     Actor.findById(req.params.id, function(err, actor){
+        // console.log(req.body.orbId,"<----- this is the body ID you're looking for")
         actor.orbs.push(req.body.orbId);
         actor.save(function(err) {
             res.redirect(`/actors/${actor._id}`)
         })
     })
 }
+
+function addOrbStats(req, res) {
+    Actor.findById(req.params.id, function(err, actor){
+        // console.log(req.body.orbId,"<----- this is the body ID you're looking for")
+        actor.orbStats.push(req.body.orbStatId);
+        actor.save(function(err) {
+            res.redirect(`/actors/${actor._id}`)
+        })
+    })
+}
+
+// async function addOrbStats(req, res) {
+//     try {
+//         console.log(req.params.id)
+//         const foundActor = Actor.findByIdAndUpdate(req.params.id,
+//             {$push: {"orbStats": req.body}},
+//             {upsert: true, new : true},
+//             function(err, actor){
+//                 console.log(foundActor)
+//                 res.redirect(`/actors/${actor.req.params.id}`)
+//             }
+//         )
+//         // BOTH THE ABOVE AND THE BELOW HAVE FAILED... No clue why...  Below seems to return an object, but then doesn't update properly when it pushes... above seems to query a huge amount.
+//         // const newOrbStat = await OrbStat.create(req.body)
+//         // console.log(newOrbStat,"<-----newOrbStat")
+//         // const updatedActor = await actor.findByIdAndUpdate().orbStats.push(newOrbStat._id)
+//         // console.log(updatedActor,"<--------updatedActor")
+//         // updatedActor.save(function(err){
+//         //     console.log(updatedActor,"<--------updatedActor after save?")
+//         //     res.redirect(`/actors/${actor._id}`)
+//         // })
+//     }catch (err) {
+//         res.send(err);
+//     }
+// }
 
 function handleErr(err) {
     console.log(err, '<---- Thar be yer error matey! Love, Actors Controller')
